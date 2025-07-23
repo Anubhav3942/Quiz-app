@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Math Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Speed Math Quiz</h1>
+        
+        <div id="start-screen" class="screen active">
+            <h2>Test your math skills!</h2>
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="extreme">Extreme</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="operation">Operation:</label>
+                    <select id="operation">
+                        <option value="addition">Addition</option>
+                        <option value="subtraction">Subtraction</option>
+                        <option value="multiplication">Multiplication</option>
+                        <option value="division">Division</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="questions">Number of Questions:</label>
+                    <select id="questions">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                
+                <div id="custom-questions-container" class="setting-group" style="display: none;">
+                    <label for="custom-questions">Enter number of questions:</label>
+                    <input type="number" id="custom-questions" min="1" max="100" value="30">
+                </div>
+            </div>
+            
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+        
+        <div id="quiz-screen" class="screen">
+            <div class="stats">
+                <div class="stat">
+                    <span>Question:</span>
+                    <span id="question-number">1/10</span>
+                </div>
+                <div class="stat">
+                    <span>Time:</span>
+                    <span id="timer">0s</span>
+                </div>
+                <div class="stat">
+                    <span>Score:</span>
+                    <span id="score">0</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question">8 + 7 = ?</h2>
+                <div id="answer-input-container">
+                    <input type="number" id="answer-input" placeholder="Enter your answer" autofocus>
+                    <button id="submit-btn" class="btn">Submit</button>
+                </div>
+            </div>
+            
+            <div id="feedback" class="feedback"></div>
+        </div>
+        
+        <div id="results-screen" class="screen">
+            <h2>Quiz Results</h2>
+            
+            <div class="results-stats">
+                <div class="result-stat">
+                    <span>Final Score:</span>
+                    <span id="final-score">0</span>
+                </div>
+                <div class="result-stat">
+                    <span>Correct Answers:</span>
+                    <span id="correct-answers">0/10</span>
+                </div>
+                <div class="result-stat">
+                    <span>Total Time:</span>
+                    <span id="total-time">0s</span>
+                </div>
+                <div class="result-stat">
+                    <span>Average Time per Question:</span>
+                    <span id="avg-time">0s</span>
+                </div>
+            </div>
+            
+            <div id="questions-review" class="questions-review">
+                <!-- Questions review will be added here dynamically -->
+            </div>
+            
+            <div class="buttons">
+                <button id="restart-btn" class="btn">Restart Quiz</button>
+                <button id="new-quiz-btn" class="btn">New Quiz</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
